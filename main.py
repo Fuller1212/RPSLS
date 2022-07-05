@@ -14,3 +14,6 @@
 
 #  (10 points): As a player, I want the option of a single player (human vs AI) or a multiplayer (human vs human) game.
 
+from battlefield import Battlefield
+game = Battlefield()
+game.run_game()

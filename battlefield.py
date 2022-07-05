@@ -1,4 +1,5 @@
-
+from human import Human
+from ai import Ai
 
 class Battlefield:
     def __init__(self):
@@ -11,10 +12,10 @@ class Battlefield:
 
     def display_welcome(self):
         print('Welcome to Rock, Paper, Scissors, Lizard, Spock')
-        print('Each match will ne a best of three games')
+        print('Each match will be a best of three games')
 
     def display_rules(self):
-        print('Rock crushes Scissors \n Scissors cuts Paper \n Paper covers Rock \n Rock crushes Lizard \n Lizard poisons Spock \n Spock smashes Scissors \n Scissors decapitates Lizard \n Lizard eats Paper \n Paper disproves Spock \n Spock vaporizes Rock\n')
+        print('Rock crushes Scissors \nScissors cuts Paper \n Paper covers Rock \n Rock crushes Lizard \n Lizard poisons Spock \n Spock smashes Scissors \n Scissors decapitates Lizard \n Lizard eats Paper \n Paper disproves Spock \n Spock vaporizes Rock\n')
 
 
 

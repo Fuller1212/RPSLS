@@ -5,5 +5,5 @@ class Player:
         self.chosen_gesture = ''
         self.win_count = 0
 
-    def player_choice():
+    def player_choice(self):
         pass
