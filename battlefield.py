@@ -1,8 +1,8 @@
 from human import Human
 from ai import Ai
-from player import Player
+
 player_1 = Human()
-player_2 = Ai()
+player_2 = None
 class Battlefield:
     def __init__(self):
         player_1 = Human()
@@ -14,6 +14,7 @@ class Battlefield:
         self.get_players()
         self.compare_gesture()
         self.display_winner()
+        self.play_again()
 
     def display_welcome(self):
         print('Welcome to Rock, Paper, Scissors, Lizard, Spock')
@@ -82,6 +83,16 @@ class Battlefield:
             print('player 1 is your winner!')
         elif player_2.win_count == 2:
             print('player 2 is your winner!')
+
+    def play_again(self):
+        print('Do you want to play again?')
+        user_input = input('yes or no')
+        if user_input == 'yes':
+            self.run_game()
+        elif user_input == 'no':
+            print('Thank you for playing')
+
+
 
 
             
