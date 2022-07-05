@@ -1,16 +1,27 @@
 from human import Human
 from ai import Ai
+from player import Player
 player_1 = Human()
-player_2 = None
+player_2 = Ai()
 class Battlefield:
     def __init__(self):
-        pass
+        player_1 = Human()
+        player_2 = None
 
     def run_game(self):
         self.display_welcome()
         self.display_rules()
         self.get_players()
-        self.get_gesture()
+        self.compare_gesture()
+        self.display_winner()
+
+    def display_welcome(self):
+        print('Welcome to Rock, Paper, Scissors, Lizard, Spock')
+        print('Each match will be a best of three games')
+
+    def display_rules(self):
+        print('Rock crushes Scissors \nScissors cuts Paper \nPaper covers Rock \nRock crushes Lizard \nLizard poisons Spock \nSpock smashes Scissors \nScissors decapitates Lizard \nLizard eats Paper \nPaper disproves Spock \nSpock vaporizes Rock\n')
+
 
     def get_players(self):
         print('How many players? 1 or 2')
@@ -24,46 +35,62 @@ class Battlefield:
         player_1.player_choice()
         player_2.player_choice()
 
-    def compare_gesture():
-        if player_1.player_choice() == player_2.player_choice():
-            print ('It is a tie, play again!')
-        elif player_1.player_choice() == 'Rock':
-            if player_2.player_choice() == 'Scissors' or 'Lizard':
-                print(f'{player_1} wins')
-            elif player_2.player_choice() == 'Paper' or 'Spock':
-                print(f'{player_2} wins')
-        elif player_1.player_choice() == 'Scissors':
-            if player_2.player_choice() == 'Paper' or 'Lizard':
-                print(f'{player_1} wins')
-            elif player_2.player_choice() == 'Rock' or 'Spock':
-                print(f'{player_2} wins')
-        elif player_1.player_choice() == 'Paper':
-            if player_2.player_choice() == 'Rock' or 'Spock':
-                print(f'{player_1} wins')
-            elif player_2.player_choice() == 'Scissors' or 'Lizard':
-                print(f'{player_2} wins')
-        elif player_1.player_choice() == 'Lizard':
-            if player_2.player_choice() == 'Spock' or 'Paper':
-                print(f'{player_1} wins')
-            elif player_2.player_choice() == 'Rock' or 'Scissors':
-                print(f'{player_2} wins')
-        elif player_1.player_choice() == 'Spock':
-            if player_2.player_choice() == 'Scissors' or 'Rock':
-                print(f'{player_1} wins')
-            elif player_2.player_choice() == 'Lizard' or 'Paper':
-                print(f'{player_2} wins')
+    def compare_gesture(self):
+        while player_1.win_count < 2 and player_2.win_count < 2:
+            self.get_gesture()
+            if player_1.chosen_gesture == player_2.chosen_gesture:
+                print ('It is a tie, play again!')
+            elif player_1.chosen_gesture == 'Rock':
+                if player_2.chosen_gesture == 'Scissors' or 'Lizard':
+                    player_1.win_count += 1
+                    print('player_1 wins')
+                elif player_2.chosen_gesture == 'Paper' or 'Spock':
+                    player_2.win_count += 1
+                    print('player_2 wins')
+            elif player_1.chosen_gesture == 'Scissors':
+                if player_2.chosen_gesture == 'Paper' or 'Lizard':
+                    player_1.win_count += 1
+                    print('player_1 wins')
+                elif player_2.chosen_gesture == 'Rock' or 'Spock':
+                    player_2.win_count += 1
+                    print('player_2 wins')
+            elif player_1.chosen_gesture == 'Paper':
+                if player_2.chosen_gesture == 'Rock' or 'Spock':
+                    player_1.win_count += 1
+                    print('player_1 wins')
+                elif player_2.chosen_gesture == 'Scissors' or 'Lizard':
+                    player_2.win_count += 1
+                    print('player_2 wins')
+            elif player_1.chosen_gesture == 'Lizard':
+                if player_2.chosen_gesture == 'Spock' or 'Paper':
+                    player_1.win_count += 1
+                    print('player_1 wins')
+                elif player_2.chosen_gesture == 'Rock' or 'Scissors':
+                    player_2.win_count += 1
+                    print('player_2 wins')
+            elif player_1.chosen_gesture == 'Spock':
+                if player_2.chosen_gesture == 'Scissors' or 'Rock':
+                    player_1.win_count += 1
+                    print('player_1 wins')
+                elif player_2.chosen_gesture == 'Lizard' or 'Paper':
+                    player_2.win_count += 1
+                    print('player_2 wins')
+
+    
+    def display_winner(self):
+        if player_1.win_count == 2:
+            print('player 1 is your winner!')
+        elif player_2.win_count == 2:
+            print('player 2 is your winner!')
+
+
             
-        pass
         
         
 
-    def display_welcome(self):
-        print('Welcome to Rock, Paper, Scissors, Lizard, Spock')
-        print('Each match will be a best of three games')
+    
 
-    def display_rules(self):
-        print('Rock crushes Scissors \nScissors cuts Paper \nPaper covers Rock \nRock crushes Lizard \nLizard poisons Spock \nSpock smashes Scissors \nScissors decapitates Lizard \nLizard eats Paper \nPaper disproves Spock \nSpock vaporizes Rock\n')
-
+   
 
 
     
