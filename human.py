@@ -15,12 +15,12 @@ class Human(Player):
             else:
                 loop = False
         if user_input == 0:
-            self.chosen_gesture = 'Rock'
+            self.chosen_gesture = self.gesture_list[0]
         elif user_input == 1:
-            self.chosen_gesture = 'Paper'
+            self.chosen_gesture = self.gesture_list[1]
         elif user_input == 2:
-            self.chosen_gesture = 'Scissors'
+            self.chosen_gesture = self.gesture_list[2]
         elif user_input == 3:
-            self.chosen_gesture = 'Lizard'
+            self.chosen_gesture = self.gesture_list[3]
         elif user_input == 4:
-            self.chosen_gesture = 'Spock'
+            self.chosen_gesture = self.gesture_list[4]
